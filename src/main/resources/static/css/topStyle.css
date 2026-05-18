@@ -87,7 +87,7 @@ body {
 }
 
 /* 分类导航栏 */
-#typeList {
+#goodsTypeList {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -96,7 +96,7 @@ body {
     border-bottom: 2px solid #e4393c;
 }
 
-#typeList li a {
+#goodsTypeList li a {
     display: inline-block;
     padding: 5px 14px;
     border-radius: 20px;
@@ -106,7 +106,7 @@ body {
     transition: background-color 0.2s, color 0.2s;
 }
 
-#typeList li a:hover {
+#goodsTypeList li a:hover {
     background-color: #e4393c;
     color: #fff;
 }

@@ -35,6 +35,30 @@ body {
     gap: 24px;
 }
 
+.search-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.search-box input {
+    width: 220px;
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 7px 14px;
+    border: 1px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
 .nav-bar a {
     text-decoration: none;
     color: #333;

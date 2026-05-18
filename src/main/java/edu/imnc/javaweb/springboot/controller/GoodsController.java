@@ -22,10 +22,18 @@ public class GoodsController {
     private GoodsMapper goodsMapper;
 
     @GetMapping("/goodses")
-    public ResponseJSON getGoods(@RequestParam(value = "type", required = false) Integer type) {
+    public ResponseJSON getGoods(@RequestParam(value = "type", required = false) Integer type,
+                                 @RequestParam(value = "search", required = false) String search) {
         LambdaQueryWrapper<Goods> queryWrapper = new LambdaQueryWrapper<>();
         if (type != null) {
             queryWrapper.eq(Goods::getGtId, type);
+        }
+        if (search != null && !search.trim().isEmpty()) {
+            String keyword = "%" + search.trim().toLowerCase() + "%";
+            queryWrapper.and(wrapper -> wrapper
+                    .apply("LOWER(goods_name) LIKE {0}", keyword)
+                    .or()
+                    .apply("LOWER(intro) LIKE {0}", keyword));
         }
         List<Goods> goodsList = goodsMapper.selectList(queryWrapper);
         return ResponseJSON.ok(goodsList);

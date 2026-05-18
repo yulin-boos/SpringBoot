@@ -22,14 +22,14 @@
             <a href="index.html"><img src="images/logo.png" alt="Logo" width="120" height="60"></a>
         </div>
         <div style="width: 50%;" class="flex">
-            <input type="text" name="search" id="searchInput"><button type="button" onclick="searchFunction()">搜索</button>
+            <input type="text" id="search"><button type="button" onclick="searchFunction()">搜索</button>
         </div>
     </div>
 
     <div class="flex">
         <div style="width: 5%;"></div>
         <div style="background-color: white; width: 90%; padding: 5px;">
-            <ul id="typeList"></ul>
+            <ul id="goodsTypeList"></ul>
         </div>
         <div style="width: 5%;"></div>
     </div>
@@ -38,6 +38,7 @@
 
     <div id="footer">版权 &copy; 棍之未来.com</div>
     <script src="js/contentScript.js"></script>
+    <script src="js/searchScript.js"></script>
     <script src="js/logoutScript.js"></script>
 </body>
 </html>

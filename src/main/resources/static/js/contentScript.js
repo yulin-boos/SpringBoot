@@ -1,6 +1,17 @@
 window.addEventListener("DOMContentLoaded", () => {
     getFetchTypeFunction("/api/goodstypes");
-    getFetchFunction("/api/goodses");
+
+    const queryStr = location.search;
+    const search = queryStr.split("=")[1];
+    if (search !== undefined && search.trim() !== "") {
+        const searchInput = document.getElementById("search");
+        if (searchInput) {
+            searchInput.value = decodeURIComponent(search);
+        }
+        getFetchSearchFunction(decodeURIComponent(search));
+    } else {
+        getFetchFunction("/api/goodses");
+    }
 });
 
 function withCacheBuster(url) {
@@ -20,7 +31,7 @@ function getFetchTypeFunction(url) {
 }
 
 function showTypeListFunction(typeList) {
-    const content = document.getElementById("typeList");
+    const content = document.getElementById("goodsTypeList");
     content.innerHTML = "";
 
     for (const type of typeList) {
@@ -67,17 +78,4 @@ function showGoodsListFunction(goodsList) {
             "</a>" +
             "</div>";
     }
-}
-
-function searchFunction() {
-    const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
-    if (keyword === "") {
-        showGoodsListFunction(allGoods);
-        return;
-    }
-    const filtered = allGoods.filter(goods => {
-        const name = (goods.goodsName ?? "").toLowerCase();
-        return name.includes(keyword);
-    });
-    showGoodsListFunction(filtered);
 }
