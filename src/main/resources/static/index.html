@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <link rel="stylesheet" type="text/css" href="css/topStyle.css">
+</head>
+<body>
+    <div id="nav" class="flex">
+        <ul>
+            <li><span><a href="myaccount.html">欢迎回来！</a></span></li>
+            <li><a href="#" class="logout-btn" onclick="logoutFunction()">退出登录</a></li>
+            <li><a href="/html/users/register.html">免费注册</a></li>
+            <li><a href="#">购物车</a></li>
+            <li><a class="active" href="index.html">商品导航</a></li>
+        </ul>
+    </div>
+
+    <div id="header" class="flex">
+        <div style="width: 50%;" class="flex">
+            <a href="index.html"><img src="images/logo.png" alt="Logo" width="120" height="60"></a>
+        </div>
+        <div style="width: 50%;" class="flex">
+            <input type="text" name="search" id="searchInput"><button type="button" onclick="searchFunction()">搜索</button>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div style="width: 5%;"></div>
+        <div style="background-color: white; width: 90%; padding: 5px;">
+            <ul id="typeList"></ul>
+        </div>
+        <div style="width: 5%;"></div>
+    </div>
+
+    <div id="goodsList" class="flex" style="flex-wrap: wrap;"></div>
+
+    <div id="footer">版权 &copy; 棍之未来.com</div>
+    <script src="js/contentScript.js"></script>
+    <script src="js/logoutScript.js"></script>
+</body>
+</html>

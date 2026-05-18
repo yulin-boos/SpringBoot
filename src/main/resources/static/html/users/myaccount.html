@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>myaccount</title>
+    <link rel="stylesheet" href="/css/myaccount.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src='/images/logo.png' alt='logo'>
+        </div>
+        <div class="nav-bar">
+            欢迎，
+            <ul>
+                <li><a href='/html/users/myaccount.html'>
+                    <span id='username'></span></a></li>
+                <li><a href='#' onclick='logoutFunction()'>退出</a></li>
+                <li><a href='#'>购物车</a></li>
+                <li><a href='/html/users/welcome.html'>商品导航</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="account-card">
+            <h2>修改密码</h2>
+            <span id='msg'></span>
+            <form id='editPWForm'>
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" name="username" readonly>
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" name="password" required placeholder="请输入新密码">
+                </div>
+                <div class="form-group">
+                    <label>确认密码</label>
+                    <input type="password" name="rePassword" required placeholder="请再次输入新密码">
+                </div>
+                <input type="button" value="提交" class="submit-btn" onclick='editPWFunction()'>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 版权
+    </div>
+    <script src="/js/myAccountScript.js"></script>
+    <script src="/js/editPWScript.js"></script>
+    <script src="/js/logoutScript.js"></script>
+</body>
+</html>
