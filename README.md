@@ -1,0 +1,3 @@
+呼和浩特民族学院的JavaWeb教学内容第七章：SpringBootForVSCode
+
+老师讲的太快了，很多同学跟不上，学长直接把项目放GitHub上了，以便跟不上的同学能直接拿来用，代码并非完全跟PPT相同，HTML、CSS是Ai写的，可以改成自己的直接交作业
