@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/topStyle.css">
+</head>
+<body>
+    <div id="nav" class="flex">
+        <ul>
+            <li><span><a href="/html/users/myaccount.html">欢迎回来！</a></span></li>
+            <li><a href="#" class="logout-btn" onclick="logoutFunction()">退出登录</a></li>
+            <li><a href="#">购物车</a></li>
+            <li><a href="/html/users/welcome.html">商品导航</a></li>
+        </ul>
+    </div>
+    <div id="header" class="flex">
+        <div style="width: 50%;" class="flex">
+            <a href="/html/users/welcome.html"><img src="/images/logo.png" alt="Logo" width="120" height="60"></a>
+        </div>
+        <div style="width: 50%;" class="flex">
+            <input type="text" id="search"><button type="button" onclick="newSearchFunction()">搜索</button>
+        </div>
+    </div>
+    <div class="flex goods-detail">
+        <div>
+            <img id="goodsImg" width="300" height="300">
+        </div>
+        <div>
+            <form id="addToCartForm">
+                <input type="text" name="goodsId" style="display: none;"><br>
+                <span id="goodsName"></span>
+                <span id="intro"></span><br>
+                ￥<span id="price"></span><br>
+                库存：<span id="stock"></span><br>
+                <input type="button" value="-" onclick="decreaseFunction()" id="dec" disabled>
+                <input type="text" name="amount" value="1" onkeyup="amountFunction()">
+                <input type="button" value="+" onclick="increaseFunction()" id="inc">
+                <input type="button" value="加入购物车" onclick="addToCartFunction()">
+            </form>
+        </div>
+    </div>
+    <div id="footer">版权所有</div>
+    <script src="/js/navScript.js"></script>
+    <script src="/js/logoutScript.js"></script>
+    <script src="/js/searchScript.js"></script>
+    <script src="/js/shopping/goodsScript.js"></script>
+    <script src="/js/shopping/cartScript.js"></script>
+</body>
+</html>

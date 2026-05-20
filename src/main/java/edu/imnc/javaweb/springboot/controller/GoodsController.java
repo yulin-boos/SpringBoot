@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 
 import edu.imnc.javaweb.springboot.entity.Goods;
 import edu.imnc.javaweb.springboot.mapper.GoodsMapper;
+import edu.imnc.javaweb.springboot.service.GoodsService;
 import edu.imnc.javaweb.springboot.utils.ResponseJSON;
 
 @RestController
@@ -20,6 +22,9 @@ public class GoodsController {
 
     @Autowired
     private GoodsMapper goodsMapper;
+
+    @Autowired
+    private GoodsService goodsService;
 
     @GetMapping("/goodses")
     public ResponseJSON getGoods(@RequestParam(value = "type", required = false) Integer type,
@@ -37,5 +42,11 @@ public class GoodsController {
         }
         List<Goods> goodsList = goodsMapper.selectList(queryWrapper);
         return ResponseJSON.ok(goodsList);
+    }
+
+    @GetMapping("/users/goodses/{goodsId}")
+    public ResponseJSON showGoodsById(@PathVariable("goodsId") Integer goodsId) {
+        Goods goods = goodsService.getGoodsById(goodsId);
+        return ResponseJSON.ok(goods);
     }
 }

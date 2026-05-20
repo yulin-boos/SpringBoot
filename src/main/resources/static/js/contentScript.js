@@ -70,7 +70,7 @@ function showGoodsListFunction(goodsList) {
         const goodsName = goods.goodsName ?? "";
         const price = goods.price ?? "";
         content.innerHTML += "<div style='display:flex;padding:2%;'>" +
-            "<a href='#' style='text-decoration:none;width:200px;height:300px;'>" +
+            "<a href='/html/shopping/goods.html?id=" + goodsId + "' style='text-decoration:none;width:200px;height:300px;'>" +
             "<img src='/images/goods/" + goodsId + ".jpg'" +
             " alt='" + goodsName + "' width='150' height='150' onerror=\"this.src='http://39.104.74.203/images/goods/" + goodsId + ".jpg'\" />" +
             "<br/>" + goodsName + "<br/>" +

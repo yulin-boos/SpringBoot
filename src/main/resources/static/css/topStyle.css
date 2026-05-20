@@ -149,6 +149,36 @@ body {
     font-weight: bold;
 }
 
+.goods-detail {
+    background-color: #fff;
+    width: 90%;
+    margin: 30px auto;
+    padding: 30px;
+    gap: 30px;
+}
+
+.goods-detail form {
+    font-size: 16px;
+    line-height: 2;
+}
+
+.goods-detail #goodsName {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.goods-detail #price {
+    color: #e4393c;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.goods-detail input[name="amount"] {
+    width: 42px;
+    text-align: center;
+}
+
 /* 页脚 */
 #footer {
     text-align: center;

@@ -1,4 +1,8 @@
 window.onload = () => {
+    getMyAccountFunction();
+};
+
+function getMyAccountFunction() {
     fetch("/api/users/myaccount")
         .then(response => response.json())
         .then(json => {
@@ -17,4 +21,4 @@ window.onload = () => {
                 }
             }
         });
-};
+}
