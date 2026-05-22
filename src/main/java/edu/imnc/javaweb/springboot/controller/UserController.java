@@ -77,6 +77,7 @@ public class UserController {
 
         if (result == 1) {
             session.setAttribute("userID", user.getId());
+            session.setAttribute("userid", user.getId());
             responseJSON = ResponseJSON.ok(null);
             responseJSON.setMessage("登录成功");
         } else if (result == -1) {
