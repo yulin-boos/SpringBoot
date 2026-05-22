@@ -67,3 +67,48 @@ function postFetchCartFunction(url, formData) {
         })
         .catch(error => console.error('Error:', error));
 }
+
+function getMyCartFunction() {
+    const url = "/api/users/cart";
+    getFetchCartFunction(url);
+}
+
+function getFetchCartFunction(url) {
+    const para = "t=" + Math.random();
+    fetch(`${url}?${para}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return "出现异常";
+            }
+        })
+        .then(resdata => {
+            if (resdata.code == 401) {
+                location.href = '/html/users/login.html';
+            } else {
+                if (resdata.success) {
+                    const myCart = resdata.data;
+                    if (myCart.length == 0) {
+                        document.getElementById('msg').innerText = '购物车是空的';
+                    } else {
+                        showMyCartFunction(myCart);
+                    }
+                }
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function showMyCartFunction(cartList) {
+    const div = document.getElementById('content');
+    div.innerText = '';
+    let c = '';
+    for (let i in cartList) {
+        for (let key in cartList[i]) {
+            c += cartList[i][key] + " ";
+        }
+        c += "\n";
+    }
+    div.innerText = c;
+}

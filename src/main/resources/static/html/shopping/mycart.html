@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我的购物车</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/topStyle.css">
+    <script src="/js/navScript.js"></script>
+    <script src="/js/logoutScript.js"></script>
+    <script src="/js/searchScript.js"></script>
+    <script src="/js/shopping/cartScript.js"></script>
+</head>
+<body>
+    <div id="nav" class="flex">
+        <ul>
+            <li><span>欢迎，<a href="/html/users/myaccount.html"><span id="username"></span></a></span></li>
+            <li><a href="#" class="logout-btn" onclick="logoutFunction()">退出</a></li>
+            <li><a href="/html/shopping/mycart.html" target="_blank">购物车</a></li>
+            <li><a href="/html/users/welcome.html">商品导航</a></li>
+        </ul>
+    </div>
+    <div id="header" class="flex">
+        <div style="width: 50%;" class="flex">
+            <a href="/html/users/welcome.html"><img src="/images/logo.png" alt="Logo" width="120" height="60"></a>
+        </div>
+        <div style="width: 50%;" class="flex">
+            <input type="text" id="search"><button type="button" onclick="newSearchFunction()">搜索</button>
+        </div>
+    </div>
+    <div id="msg"></div>
+    <div id="content"></div>
+    <div id="footer">版权所有</div>
+    <script>
+        window.onload = () => {
+            getMyAccountFunction();
+            getMyCartFunction();
+        };
+    </script>
+</body>
+</html>
