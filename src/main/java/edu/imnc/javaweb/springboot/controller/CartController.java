@@ -7,8 +7,10 @@ import edu.imnc.javaweb.springboot.utils.ResponseJSON;
 import edu.imnc.javaweb.springboot.vo.CartItemVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,6 +56,20 @@ public class CartController {
         } else {
             rJson = ResponseJSON.error();
             rJson.setMessage("商品加入购物车异常");
+        }
+
+        return rJson;
+    }
+
+    @DeleteMapping("/users/cart/{cartId}")
+    public ResponseJSON deleteCartById(@PathVariable Integer cartId) {
+        ResponseJSON rJson = null;
+
+        int result = cartMapper.deleteById(cartId);
+        if (result == 1) {
+            rJson = ResponseJSON.ok(null);
+        } else {
+            rJson = ResponseJSON.error();
         }
 
         return rJson;
